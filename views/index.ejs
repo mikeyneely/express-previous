@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do List</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section>
+    <h1>To Do List</h1>
+    <h2>What needs to be done?</h2>
+    <ul class="messages">
+    <% for(var i=0; i<messages.length; i++) {%>
+      <% if( messages[i].checkMark === true) {%>
+        <li class="message">
+          <span class="done"><%= messages[i].name %></span>
+          <% console.log(messages[i]) %>
+          <span><i class="fas fa-check-square" aria-hidden="true"></i></span>
+          <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+        </li>
+       <% } else{ %>
+         <li class="message">
+           <span class="notdone"><%= messages[i].name %></span>
+           <span><i class="fas fa-check-square" aria-hidden="true"></i></span>
+           <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+         </li>
+      <% } %>
+    <% } %>
+
+    </ul>
+
+    <h2>Add to list</h2>
+
+    <form action="/messages" method="POST">
+      <input type="text" placeholder="text" name="name">
+      <button type="submit">Add to list</button>
+    </form>
+  </section>
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
